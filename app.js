@@ -43,3 +43,21 @@ if(skillsCarousel){
   skillsCarousel.querySelector('.skills-dots').hidden=false;
   updateSkills();
 }
+
+/* Shared folder tabs, with an all-projects view. */
+const folderStack=document.querySelector('.folder-stack');
+if(folderStack){
+  const folderButtons=[...folderStack.querySelectorAll('[data-folder]')];
+  const folderPanels=[...folderStack.querySelectorAll('article.folder')];
+  function selectFolder(id){
+    folderButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.folder===id)));
+    folderPanels.forEach(panel=>{panel.hidden=id!=='all'&&panel.id!=='folder-'+id});
+    folderStack.dataset.activeFolder=id;
+  }
+  folderButtons.forEach(button=>button.addEventListener('click',()=>{
+    selectFolder(button.dataset.folder);
+    const strip=folderStack.querySelector('.folder-tabs');
+    if(strip.getBoundingClientRect().top<0)strip.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+  }));
+  selectFolder('twitch');
+}

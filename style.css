@@ -129,3 +129,24 @@ body{background:white;color:black}
 
 /* Keyboard focus for the interactive keychain. */
 #keychain:focus-visible{outline:3px solid #9477a8;outline-offset:-6px}
+
+/* Full-width, angled folder tabs inspired by the supplied layout. */
+.folder-intro{padding-bottom:55px}
+.folder-stack{padding:0 0 70px;background:#e9e5fa;isolation:isolate}
+.folder-tabs{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#3e3552;isolation:isolate}
+.folder-nav{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;min-height:68px;border:0;border-radius:12px 0 0 0;padding:17px clamp(14px,2.4vw,36px) 17px clamp(14px,2.4vw,36px);padding-right:38px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 100%,0 100%);background:#ebe4f0;color:#3e3552;font:clamp(9px,1.05vw,14px)/1.4 monospace;letter-spacing:.4px;text-align:left;margin-right:-1px;transition:background .2s}
+.folder-nav span{font-size:18px}.folder-nav-1[aria-pressed="true"]{background:#d6e9fb}.folder-nav-2[aria-pressed="true"]{background:#f8dcdf}.folder-nav-3[aria-pressed="true"]{background:#e1d8f4}
+.folder-nav[aria-pressed="true"]{font-weight:bold}
+.folder-nav:hover{background:#fff4db}
+.folder-nav:focus-visible{outline:0;background:#fff4db;box-shadow:inset 0 0 0 3px #785a85}
+.folder-nav-all{background:#30283f;color:#fff6ff;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 100%,0 100%)}.folder-nav-all:hover,.folder-nav-all:focus-visible{background:#655378}.folder-nav-all[aria-pressed="true"]{background:#655378}
+.folder-stack>.folder{position:relative;top:auto!important;min-height:0;isolation:auto;border-radius:0;box-shadow:none;margin:0;padding:40px 4% 55px;scroll-margin-top:80px}
+.folder-stack>.folder:before{display:none}
+.folder-stack>.folder .folder-header{grid-template-columns:1.4fr 1fr;padding-bottom:28px}
+.folder-stack>.folder .folder-body{grid-template-columns:minmax(220px,.8fr) minmax(0,1.6fr);gap:clamp(25px,4vw,65px);padding-top:30px}
+.folder-stack>.folder .folder-description{font-size:12px;max-width:360px}
+.folder-stack>.folder .folder-art{border-radius:4px;min-width:0}
+.folder-stack[data-active-folder="all"]>.folder+.folder{border-top:1px solid #695b7840}
+@media(max-width:900px){.folder-nav{padding-left:16px;padding-right:26px;font-size:10px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 100%,0 100%)}.folder-nav span{display:none}.folder-stack>.folder .folder-body{grid-template-columns:minmax(170px,.8fr) minmax(0,1.4fr);gap:25px}}
+@media(max-width:600px){.folder-intro{padding-bottom:35px}.folder-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.folder-nav{min-height:62px;padding:12px 16px 12px 10px;font-size:8px;letter-spacing:0;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);border-radius:8px 0 0 0;overflow-wrap:normal}.folder-stack>.folder{padding:25px 6% 35px}.folder-stack>.folder .folder-header{grid-template-columns:1fr;gap:15px}.folder-stack>.folder .folder-body{grid-template-columns:1fr;gap:22px;padding-top:20px}.folder-stack>.folder .folder-description{max-width:none;font-size:11px}.folder-stack{padding-bottom:35px}}
+@media print{.folder-tabs{display:none}.folder-stack>.folder[hidden]{display:block!important}.folder-stack>.folder{break-inside:avoid;padding:25px 5%}}
