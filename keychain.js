@@ -17,29 +17,12 @@ for(let i=0;i<2;i++){const ring=new T.Mesh(new T.TorusGeometry(.35,.045,16,100),
 const all=[],tags=[];function printTexture(kind){const c=document.createElement('canvas');c.width=512;c.height=1024;const x=c.getContext('2d');x.clearRect(0,0,512,1024);x.fillStyle='#454157';x.font='22px monospace';x.fillText('RYANNA JELKS / '+kind.num,45,150);x.fillRect(45,180,422,2);x.save();x.translate(0,0);x.font='92px Georgia';let y=315;kind.words.forEach(word=>{x.font='92px Georgia';const width=x.measureText(word).width;if(width>430)x.font=`${Math.floor(92*430/width)}px Georgia`;x.fillText(word,40,y);y+=95});x.restore();x.font='24px monospace';x.fillText(kind.footer,42,910);x.fillText('↗',425,910);x.strokeStyle='#ffffffa0';x.lineWidth=2;x.strokeRect(22,85,468,875);const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;return t}
 function tag(id,color,x,angle,z,words,num,footer){const group=new T.Group();group.position.set(x,1.7,z);rig.add(group);const w=1.1,h=2.9,shape=rounded(w,h,.14);const hole=new T.Path();hole.absarc(0,h/2-.18,.072,0,Math.PI*2,true);shape.holes.push(hole);const material=new T.MeshPhysicalMaterial({color,metalness:.03,roughness:.1,transmission:.5,thickness:.23,ior:1.46,transparent:true,opacity:1,clearcoat:1,clearcoatRoughness:.07,envMapIntensity:1.3,side:T.DoubleSide});const body=extrusion(shape,.15,material);body.position.y=-1.88;body.userData.id=id;group.add(body);all.push(body);
 const tex=printTexture({words,num,footer});const ink=new T.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:T.DoubleSide,polygonOffset:true,polygonOffsetFactor:-1});const face=new T.Mesh(new T.PlaneGeometry(1.02,2.75),ink);face.position.set(0,-1.88,.12);face.userData.id=id;group.add(face);all.push(face);const reverse=new T.Mesh(face.geometry,ink);reverse.position.set(0,-1.88,-.12);reverse.rotation.y=Math.PI;reverse.userData.id=id;group.add(reverse);all.push(reverse);
-const jump=new T.Mesh(new T.TorusGeometry(.13,.025,12,40),metal);jump.scale.y=2.1;jump.position.set(0,-.28,0);group.add(jump);group.rotation.z=angle;tags.push({id,material,group,angle,phase:tags.length*2.1,frequency:.0007+tags.length*.00017,swing:0,velocity:0});return group}
-// Separate attachment points and a wide fan keep every project face exposed.
-tag('twitch','#b5dafa',-.7,-.72,.05,['community','climb.'],'01','TWITCH WINNER');
-tag('meta','#ffc9d9',0,0,.12,['where','plans go','to die?'],'02','META CHALLENGE');
-tag('unity','#d6c8f2',.7,.72,.05,['unity','hub.'],'03','HUMAN-CENTERED');
-tube([[-.2,1.83,.05],[-.45,1.78,.05],[-.7,1.7,.05]],.025,metal);
-tube([[.2,1.83,.05],[.45,1.78,.05],[.7,1.7,.05]],.025,metal);
+const jump=new T.Mesh(new T.TorusGeometry(.13,.025,12,40),metal);jump.scale.y=2.1;jump.position.set(0,-.28,0);group.add(jump);group.rotation.z=angle;tags.push({id,material,group,angle,phase:tags.length*1.3});return group}
+tag('unity','#d6c8f2',.06,.38,-.22,['unity','hub.'],'03','HUMAN-CENTERED');tag('meta','#ffc9d9',-.04,.05,-.02,['where','plans go','to die?'],'02','META CHALLENGE');tag('twitch','#b5dafa',-.12,-.39,.23,['community','climb.'],'01','TWITCH WINNER');
 // Solid enamel flower charm, attached by a separate steel jump ring.
-const flowerGroup=new T.Group();flowerGroup.position.set(-.18,2.05,.3);flowerGroup.scale.setScalar(.48);flowerGroup.rotation.z=.3;rig.add(flowerGroup);const fshape=new T.Shape(),radii=[];for(let i=0;i<=240;i++){const a=i/240*Math.PI*2,r=.65+.17*Math.cos(a*5);const x=Math.cos(a)*r,y=Math.sin(a)*r;if(i===0)fshape.moveTo(x,y);else fshape.lineTo(x,y)}fshape.closePath();const enamel=new T.MeshPhysicalMaterial({color:'#f8df93',roughness:.23,metalness:.05,clearcoat:1,clearcoatRoughness:.12});const flower=extrusion(fshape,.13,enamel);flower.position.set(0,-1.22,0);flower.userData.id='unity';flowerGroup.add(flower);all.push(flower);tube([[0,0,0],[.04,-.3,0],[0,-.48,0]],.025,metal,flowerGroup);const center=new T.Mesh(new T.SphereGeometry(.21,32,24),new T.MeshPhysicalMaterial({color:'#fff4cf',roughness:.3,clearcoat:1}));center.scale.z=.28;center.position.set(0,-1.22,.12);flowerGroup.add(center);
+const flowerGroup=new T.Group();flowerGroup.position.set(.25,1.65,-.12);flowerGroup.rotation.z=.65;rig.add(flowerGroup);const fshape=new T.Shape(),radii=[];for(let i=0;i<=240;i++){const a=i/240*Math.PI*2,r=.65+.17*Math.cos(a*5);const x=Math.cos(a)*r,y=Math.sin(a)*r;if(i===0)fshape.moveTo(x,y);else fshape.lineTo(x,y)}fshape.closePath();const enamel=new T.MeshPhysicalMaterial({color:'#f8df93',roughness:.23,metalness:.05,clearcoat:1,clearcoatRoughness:.12});const flower=extrusion(fshape,.13,enamel);flower.position.set(0,-1.22,0);flower.userData.id='unity';flowerGroup.add(flower);all.push(flower);tube([[0,0,0],[.04,-.3,0],[0,-.48,0]],.025,metal,flowerGroup);const center=new T.Mesh(new T.SphereGeometry(.21,32,24),new T.MeshPhysicalMaterial({color:'#fff4cf',roughness:.3,clearcoat:1}));center.scale.z=.28;center.position.set(0,-1.22,.12);flowerGroup.add(center);
 const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.ShadowMaterial({opacity:.12}));floor.rotation.x=-Math.PI/2;floor.position.y=-3.3;floor.receiveShadow=true;scene.add(floor);
-let W=0,H=0;
-function resize(){
-  W=stage.clientWidth;H=stage.clientHeight;if(!W||!H)return;
-  renderer.setSize(W,H,false);camera.aspect=W/H;
-  const scale=W<600?.95:W<900?1.02:1.05;
-  rig.scale.setScalar(scale);
-  rig.position.set(W<600?0:W<900?.5:.8,W<600?-1.2:W<900?-.3:0,0);
-  camera.position.y=W<600?.25:0;
-  // Fit the full fan, with room for each charm's pendulum arc.
-  camera.position.z=Math.max(W<600?18:W<900?17:16,7.2*scale/(2*Math.tan(camera.fov*Math.PI/360)*camera.aspect));
-  camera.updateProjectionMatrix();
-}
-new ResizeObserver(resize).observe(stage);resize();
+let W=0,H=0;function resize(){W=stage.clientWidth;H=stage.clientHeight;renderer.setSize(W,H,false);camera.aspect=W/H;camera.updateProjectionMatrix();if(W<600){camera.position.z=18;camera.position.y=.25;rig.position.set(0,-1.2,0);rig.scale.setScalar(.95)}else if(W<900){camera.position.z=17;rig.position.set(.5,-.3,0);rig.scale.setScalar(1.02)}else{camera.position.z=16;rig.position.set(.8,0,0);rig.scale.setScalar(1.05)}}new ResizeObserver(resize).observe(stage);resize();
 const ray=new T.Raycaster(),mouse=new T.Vector2();
 const projectNames={twitch:'Community Climb',meta:'Where Plans Go to Die?',unity:'Unity Hub'};
 const projectIds=['twitch','meta','unity'];
@@ -49,7 +32,7 @@ function highlight(id){
   hovered=id;
   tags.forEach(tag=>{tag.material.emissive.set(id===tag.id?'#b79bdf':'#000000');tag.material.emissiveIntensity=id===tag.id?.25:0});
   canvas.style.cursor=id?'pointer':'grab';
-  if(id){selected=id;canvas.setAttribute('aria-label','Open '+projectNames[id]+' project. Use left and right arrow keys to choose, then Enter to open. Drag a charm to swing it.')}
+  if(id){selected=id;canvas.setAttribute('aria-label','Open '+projectNames[id]+' project. Use left and right arrow keys to choose, then Enter to open. Drag to rotate.')}
 }
 function pick(event){
   const bounds=canvas.getBoundingClientRect();if(!bounds.width||!bounds.height)return null;
@@ -66,14 +49,8 @@ canvas.addEventListener('pointerdown',event=>{
 canvas.addEventListener('pointermove',event=>{
   if(down&&event.pointerId===pointerId){
     if(Math.hypot(event.clientX-startX,event.clientY-startY)>8)moved=true;
-    const charm=tags.find(tag=>tag.id===pressedProject);
-    if(charm){
-      charm.swing=Math.max(-.14,Math.min(.14,charm.swing+(event.clientX-lastX)*.004));
-      charm.velocity=Math.max(-.8,Math.min(.8,(event.clientX-lastX)*.04));
-    }else{
-      rotY=Math.max(-.38,Math.min(.38,rotY+(event.clientX-lastX)*.005));
-      rotX=Math.max(-.3,Math.min(.3,rotX+(event.clientY-lastY)*.004));
-    }
+    rotY+=(event.clientX-lastX)*.008;
+    rotX=Math.max(-.45,Math.min(.45,rotX+(event.clientY-lastY)*.004));
     lastX=event.clientX;lastY=event.clientY;
     if(moved)highlight(null);
     canvas.style.cursor='grabbing';
@@ -102,28 +79,5 @@ canvas.addEventListener('keydown',event=>{
   }
 });
 canvas.style.cursor='grab';
-// Independent damped pendulums; limited arcs preserve each label's visibility.
-function swingCharm(tag,t,dt,paused,dragged,hovered){
-  if(paused){tag.swing=0;tag.velocity=0;tag.group.rotation.z=tag.angle;tag.group.rotation.y=0;return}
-  if(tag.id===hovered&&!dragged)return;
-  if(tag.id!==dragged){
-    tag.velocity+=(-16*tag.swing-4.5*tag.velocity)*dt;
-    tag.swing=Math.max(-.14,Math.min(.14,tag.swing+tag.velocity*dt));
-  }
-  const breeze=tag.id===dragged?0:Math.sin(t*tag.frequency+tag.phase)*.045;
-  tag.group.rotation.z=tag.angle+Math.max(-.15,Math.min(.15,tag.swing+breeze));
-  tag.group.rotation.y=Math.sin(t*tag.frequency*.7+tag.phase)*.025;
-}
-let last=0;
-function animate(t){
-  requestAnimationFrame(animate);if(t-last<30)return;
-  const dt=Math.min((t-last)/1000,.05);last=t;
-  const paused=document.body.classList.contains('paused');
-  rig.rotation.y=rotY+(!paused&&!down&&!hovered?Math.sin(t*.00048)*.035:0);
-  rig.rotation.x=rotX;rig.rotation.z=0;
-  tags.forEach(tag=>swingCharm(tag,t,dt,paused,down?pressedProject:null,hovered));
-  flowerGroup.rotation.z=.3+(!paused?Math.sin(t*.0008)*.035:0);
-  renderer.render(scene,camera);
-}
-requestAnimationFrame(animate);document.querySelector("#fallback").hidden=true;
+let last=0;function animate(t){requestAnimationFrame(animate);if(t-last<30)return;last=t;const paused=document.body.classList.contains('paused');rig.rotation.y=rotY+(!paused&&!down?Math.sin(t*.00048)*.15:0);rig.rotation.x=rotX;rig.rotation.z=!paused&&!down?Math.sin(t*.0006)*.015:0;tags.forEach(({group,angle,phase})=>{group.rotation.z=angle+(!paused&&!down?Math.sin(t*.0009+phase)*.025:0);group.rotation.y=!paused?Math.sin(t*.0007+phase)*.06:0});flowerGroup.rotation.z=.65+(!paused?Math.sin(t*.0008)*.035:0);renderer.render(scene,camera)}requestAnimationFrame(animate);document.querySelector("#fallback").hidden=true;
 }catch(error){document.querySelector('#fallback').hidden=false;canvas.hidden=true;console.error('3D scene unavailable:',error)}
