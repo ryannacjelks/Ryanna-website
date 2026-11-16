@@ -127,12 +127,5 @@ body{background:white;color:black}
 @media(max-width:1050px){.project-visual{grid-template-columns:1fr;padding:23px 22px 45px;gap:18px}.visual-context h3{font-size:28px;margin:9px 0}.visual-context h3 br{display:none}.visual-context ul{display:none}.concept-screen{max-width:280px}}
 @media(max-width:600px){.project-visual{min-height:0;padding:24px 20px 44px;gap:18px}.visual-context h3{font-size:28px}.visual-kicker{font-size:8px}.concept-screen{max-width:285px}.project-visual figcaption{font-size:7px;left:20px;right:20px;bottom:12px}}
 
-/* Project-opening feedback for the keychain. */
-.keychain-hint{position:absolute;left:64%;bottom:19%;transform:translateX(-50%);padding:10px 16px;border:1px solid #9b85ad60;border-radius:24px;background:#fffbfff0;color:#514160;font:10px/1.5 monospace;text-align:center;pointer-events:none;max-width:85%;width:max-content;box-shadow:0 5px 18px #49385510;transition:background .2s,border-color .2s}
-.keychain-hint.is-active{background:#e6d9f5;border-color:#9477a8}
+/* Keyboard focus for the interactive keychain. */
 #keychain:focus-visible{outline:3px solid #9477a8;outline-offset:-6px}
-.key-controls{flex-wrap:wrap;justify-content:center;max-width:94%;width:max-content}
-.key-controls button{cursor:pointer}
-@media(max-width:900px){.keychain-hint{left:50%;bottom:20%}}
-@media(max-width:600px){.keychain-hint{bottom:22%;font-size:9px}.key-controls{bottom:9%;gap:5px}.key-controls button{font-size:8px;padding:6px 8px}}
-@media print{.keychain-hint{display:none!important}}

@@ -25,14 +25,12 @@ const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.ShadowMaterial({opacit
 let W=0,H=0;function resize(){W=stage.clientWidth;H=stage.clientHeight;renderer.setSize(W,H,false);camera.aspect=W/H;camera.updateProjectionMatrix();if(W<600){camera.position.z=18;camera.position.y=.25;rig.position.set(0,-1.2,0);rig.scale.setScalar(.95)}else if(W<900){camera.position.z=17;rig.position.set(.5,-.3,0);rig.scale.setScalar(1.02)}else{camera.position.z=16;rig.position.set(.8,0,0);rig.scale.setScalar(1.05)}}new ResizeObserver(resize).observe(stage);resize();
 const ray=new T.Raycaster(),mouse=new T.Vector2();
 const projectNames={twitch:'Community Climb',meta:'Where Plans Go to Die?',unity:'Unity Hub'};
-const projectIds=['twitch','meta','unity'],hint=document.querySelector('#keychain-hint');
+const projectIds=['twitch','meta','unity'];
 let selected='twitch',hovered=null,down=false,moved=false,pointerId=null,pressedProject=null;
 let lastX=0,lastY=0,startX=0,startY=0,rotY=-.17,rotX=.05;
 function highlight(id){
   hovered=id;
   tags.forEach(tag=>{tag.material.emissive.set(id===tag.id?'#b79bdf':'#000000');tag.material.emissiveIntensity=id===tag.id?.25:0});
-  hint.textContent=id?'Open '+projectNames[id]+' ↗':'Click or tap a charm to open its project ↗';
-  hint.classList.toggle('is-active',!!id);
   canvas.style.cursor=id?'pointer':'grab';
   if(id){selected=id;canvas.setAttribute('aria-label','Open '+projectNames[id]+' project. Use left and right arrow keys to choose, then Enter to open. Drag to rotate.')}
 }
