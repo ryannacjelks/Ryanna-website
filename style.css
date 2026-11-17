@@ -281,3 +281,10 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .work-card-preview .project-visual.meta-showcase>img{width:100%;height:100%;object-fit:contain;flex:1;min-height:0}
 .work-card-preview .project-visual.meta-showcase figcaption{font-size:6px;padding:7px 10px}
 @media(max-width:650px){.folder-stack>.folder .project-visual.meta-showcase{height:auto;min-height:0}.folder-stack>.folder .project-visual.meta-showcase>img{width:100%;height:auto}}
+
+/* Each Meta role is a distinct contribution. */
+.project-roles{padding-left:18px;margin:5px 0 0;list-style:disc}
+.project-roles li{padding-left:2px;margin:0 0 5px;line-height:1.6}
+.folder-facts .project-roles{font-size:13px}
+.project-role-block{margin:22px 0}
+.project-role-label{font:10px/1.5 monospace;letter-spacing:1px;margin:0 0 8px}
