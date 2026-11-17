@@ -272,3 +272,12 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .work-card-preview .project-visual.twitch-showcase>img{width:100%;height:100%;object-fit:contain;flex:1;min-height:0}
 .work-card-preview .project-visual.twitch-showcase figcaption{font-size:6px;padding:7px 10px}
 @media(max-width:650px){.folder-stack>.folder .project-visual.twitch-showcase{height:auto;min-height:0}.folder-stack>.folder .project-visual.twitch-showcase>img{width:100%;height:auto}}
+
+/* Complete Meta event-planning flow, based on the supplied Figma screens. */
+.folder-stack>.folder .project-visual.meta-showcase,.work-card-preview .project-visual.meta-showcase{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;padding:0;background:#dce2fd;border-radius:12px;overflow:hidden}
+.project-visual.meta-showcase>img{display:block;width:100%;height:auto;min-height:0;object-fit:contain;flex:0 1 auto}
+.folder-stack>.folder .project-visual.meta-showcase figcaption,.work-card-preview .project-visual.meta-showcase figcaption{position:static;flex:0 0 auto;margin:0;padding:9px 12px;text-align:center;font:7px/1.6 monospace;letter-spacing:.35px;color:#434565;background:#e2e4fc}
+.work-card-preview .project-visual.meta-showcase{height:100%;border-radius:0}
+.work-card-preview .project-visual.meta-showcase>img{width:100%;height:100%;object-fit:contain;flex:1;min-height:0}
+.work-card-preview .project-visual.meta-showcase figcaption{font-size:6px;padding:7px 10px}
+@media(max-width:650px){.folder-stack>.folder .project-visual.meta-showcase{height:auto;min-height:0}.folder-stack>.folder .project-visual.meta-showcase>img{width:100%;height:auto}}
