@@ -263,3 +263,12 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .work-card-preview .unity-shot{gap:8px}.work-card-preview .unity-shot>span{font-size:6px}
 @media(max-width:900px){.folder-stack>.folder .project-visual.unity-showcase{padding:23px 12px 16px;gap:16px}.unity-showcase-heading{flex-direction:column;align-items:flex-start;gap:7px}.unity-showcase-heading>small{max-width:none;text-align:left;font-size:6px}.unity-showcase-heading>span{font-size:25px}.unity-screens{gap:4px;padding:10px 2px}.unity-shot>span{font-size:6px;letter-spacing:0}}
 @media(max-width:650px){.folder-stack>.folder .project-visual.unity-showcase{height:380px;gap:15px}.unity-showcase-heading{flex-direction:row;align-items:center}.unity-showcase-heading>small{max-width:130px;text-align:right}.unity-shot{gap:8px}.unity-shot>span{font-size:6px}}
+
+/* Community Climb artwork based on the actual Figma flow. */
+.folder-stack>.folder .project-visual.twitch-showcase,.work-card-preview .project-visual.twitch-showcase{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;padding:0;background:#e4cef7;border-radius:12px;overflow:hidden}
+.project-visual.twitch-showcase>img{display:block;width:100%;height:auto;min-height:0;object-fit:contain;flex:0 1 auto}
+.folder-stack>.folder .project-visual.twitch-showcase figcaption,.work-card-preview .project-visual.twitch-showcase figcaption{position:static;flex:0 0 auto;margin:0;padding:9px 12px;text-align:center;font:7px/1.6 monospace;letter-spacing:.4px;color:#503568;background:#ead9fa}
+.work-card-preview .project-visual.twitch-showcase{height:100%;border-radius:0}
+.work-card-preview .project-visual.twitch-showcase>img{width:100%;height:100%;object-fit:contain;flex:1;min-height:0}
+.work-card-preview .project-visual.twitch-showcase figcaption{font-size:6px;padding:7px 10px}
+@media(max-width:650px){.folder-stack>.folder .project-visual.twitch-showcase{height:auto;min-height:0}.folder-stack>.folder .project-visual.twitch-showcase>img{width:100%;height:auto}}
