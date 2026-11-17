@@ -297,3 +297,14 @@ a.folder-nav{white-space:normal;text-decoration:none}
 /* Render stars as real elements so they remain visible reliably. */
 .project-roles li::before{content:none}
 .project-roles .role-star{position:absolute;left:0;top:.05em;color:#78528c;font-size:13px;line-height:inherit}
+
+/* Small, distinct project icons in the All Work descriptions. */
+.project-dialog-heading{display:flex;align-items:center;gap:16px;clear:both;padding-top:28px;margin-bottom:22px}
+dialog .project-dialog-heading h2{padding:0;margin:0;clear:none;font-size:clamp(28px,4vw,42px);line-height:1.15}
+.project-dialog-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:14px;background:#e5d8f5;color:#765295}
+.project-dialog-icon svg{display:block;width:26px;height:26px}
+.project-dialog-icon.icon-twitch{background:#e6d4ff;color:#7a35ce}
+.project-dialog-icon.icon-meta{background:#dce9ff;color:#3566ba}
+.project-dialog-icon.icon-unity{background:#eee4ff;color:#8760b5}
+.project-dialog-icon.icon-accenture{background:#f5dcf2;color:#905a9c}
+@media(max-width:600px){.project-dialog-heading{gap:12px}.project-dialog-icon{flex-basis:40px;width:40px;height:40px;border-radius:12px}.project-dialog-icon svg{width:22px;height:22px}}
