@@ -62,7 +62,11 @@ if(folderStack){
   }
   buttons.forEach(button=>button.addEventListener('click',()=>{
     const panel=document.getElementById('folder-'+button.dataset.folder);
-    if(panel)panel.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+    if(panel){
+      let naturalTop=folderStack.getBoundingClientRect().top+window.scrollY;
+      for(const previous of panels){if(previous===panel)break;naturalTop+=previous.offsetHeight+parseFloat(getComputedStyle(previous).marginBottom||0)}
+      window.scrollTo({top:naturalTop,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    }
   }));
   let frame=0;
   function updateFolder(){

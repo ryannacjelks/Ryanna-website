@@ -241,3 +241,8 @@ a.folder-nav{white-space:normal;text-decoration:none}
 @media(max-width:900px){.folder-stack>.folder .folder-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}.folder-stack>.folder .project-visual{height:465px;padding-inline:14px}.folder-stack>.folder .concept-screen{flex-basis:255px;max-width:255px;transform:scale(.82)}.folder-stack>.folder .folder-header h2{font-size:36px}}
 @media(max-width:650px){.folder-stack>.folder{padding:26px 6% 32px}.folder-stack>.folder .folder-header{align-items:start;flex-direction:column;gap:12px;padding-bottom:20px}.folder-stack>.folder .folder-header h2{font-size:34px}.folder-category{font-size:9px;margin-bottom:9px}.folder-date{font-size:9px}.folder-stack>.folder .folder-body{grid-template-columns:1fr;gap:25px;padding-top:23px}.folder-stack>.folder .folder-description{max-width:none}.folder-stack>.folder .folder-description .folder-summary{font-size:14px}.folder-facts{gap:14px;margin-bottom:20px}.folder-highlights{font-size:13px}.folder-stack>.folder .project-visual{height:450px}.folder-stack>.folder .concept-screen{flex-basis:280px;max-width:280px;transform:scale(.82)}}
 @media print{.folder-facts{display:block}.folder-facts>div{margin-bottom:12px}}
+
+/* Keep the complete phone preview inside its illustration frame. */
+.folder-stack>.folder .concept-screen{zoom:.72;transform:none;margin:0;flex-basis:280px;max-width:280px}
+@media(max-width:900px){.folder-stack>.folder .concept-screen{zoom:.68;transform:none;margin:0;flex-basis:280px;max-width:280px}}
+@media(max-width:650px){.folder-stack>.folder .concept-screen{zoom:.68;transform:none;margin:0}}
