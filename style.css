@@ -293,3 +293,7 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .project-roles{list-style:none;padding-left:0}
 .project-roles li{position:relative;padding-left:19px}
 .project-roles li::before{content:"✦";position:absolute;left:0;top:.1em;font-size:11px;color:#8b659f}
+
+/* Render stars as real elements so they remain visible reliably. */
+.project-roles li::before{content:none}
+.project-roles .role-star{position:absolute;left:0;top:.05em;color:#78528c;font-size:13px;line-height:inherit}

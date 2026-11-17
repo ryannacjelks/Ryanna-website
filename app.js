@@ -3,7 +3,7 @@ const data={"twitch":{"n":"01 / TWITCH DESIGN CHALLENGE · SEPT—OCT 2026","tit
 function openProject(id,opener){
   const p=data[id];if(!p)return;
   projectOpener=opener||document.activeElement;
-  content.innerHTML=`<div class="meta">${p.n}</div><h2 id="project-title">${p.title}</h2><p><strong>${p.intro}</strong></p>${p.roles ? `<div class="project-role-block"><p class="project-role-label">MY ROLES</p><ul class="project-roles">${p.roles.map(role=>`<li>${role}</li>`).join("")}</ul></div>` : ""}<p>${p.body}</p><ul>${p.list.map(v=>`<li>${v}</li>`).join('')}</ul>${p.resourcesHtml || ""}<p class="disclosure">${p.note}</p>`;
+  content.innerHTML=`<div class="meta">${p.n}</div><h2 id="project-title">${p.title}</h2><p><strong>${p.intro}</strong></p>${p.roles ? `<div class="project-role-block"><p class="project-role-label">MY ROLES</p><ul class="project-roles">${p.roles.map(role=>`<li><span class="role-star" aria-hidden="true">✦</span>${role}</li>`).join("")}</ul></div>` : ""}<p>${p.body}</p><ul>${p.list.map(v=>`<li>${v}</li>`).join('')}</ul>${p.resourcesHtml || ""}<p class="disclosure">${p.note}</p>`;
   if(!dialog.open)dialog.showModal();
 }
 document.querySelectorAll('[data-project]').forEach(el=>el.addEventListener('click',()=>openProject(el.dataset.project,el)));
