@@ -44,20 +44,31 @@ if(skillsCarousel){
   updateSkills();
 }
 
-/* Shared folder tabs, with an all-projects view. */
+/* All featured projects stay visible; folder tabs scroll to each project. */
 const folderStack=document.querySelector('.folder-stack');
 if(folderStack){
-  const folderButtons=[...folderStack.querySelectorAll('[data-folder]')];
-  const folderPanels=[...folderStack.querySelectorAll('article.folder')];
-  function selectFolder(id){
-    folderButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.folder===id)));
-    folderPanels.forEach(panel=>{panel.hidden=id!=='all'&&panel.id!=='folder-'+id});
+  const buttons=[...folderStack.querySelectorAll('[data-folder]')];
+  const panels=[...folderStack.querySelectorAll('article.folder')];
+  const strip=folderStack.querySelector('.folder-tabs');
+  panels.forEach(panel=>{panel.hidden=false});
+  function markFolder(id){
+    buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.folder===id)));
     folderStack.dataset.activeFolder=id;
   }
-  folderButtons.forEach(button=>button.addEventListener('click',()=>{
-    selectFolder(button.dataset.folder);
-    const strip=folderStack.querySelector('.folder-tabs');
-    if(strip.getBoundingClientRect().top<0)strip.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const id=button.dataset.folder==='all'?'twitch':button.dataset.folder;
+    const panel=panels.find(panel=>panel.id==='folder-'+id);
+    if(panel){markFolder(id);panel.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}
   }));
-  selectFolder('twitch');
+  let scrollFrame=0;
+  function updateFolder(){
+    scrollFrame=0;
+    const edge=strip.getBoundingClientRect().height+35;
+    let current=panels[0];
+    panels.forEach(panel=>{if(panel.getBoundingClientRect().top<=edge)current=panel});
+    if(current)markFolder(current.id.replace('folder-',''));
+  }
+  window.addEventListener('scroll',()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateFolder)},{passive:true});
+  window.addEventListener('resize',updateFolder);
+  updateFolder();
 }
