@@ -288,3 +288,8 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .folder-facts .project-roles{font-size:13px}
 .project-role-block{margin:22px 0}
 .project-role-label{font:10px/1.5 monospace;letter-spacing:1px;margin:0 0 8px}
+
+/* Star markers for the different Meta project roles. */
+.project-roles{list-style:none;padding-left:0}
+.project-roles li{position:relative;padding-left:19px}
+.project-roles li::before{content:"✦";position:absolute;left:0;top:.1em;font-size:11px;color:#8b659f}
