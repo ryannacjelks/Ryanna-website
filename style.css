@@ -246,3 +246,20 @@ a.folder-nav{white-space:normal;text-decoration:none}
 .folder-stack>.folder .concept-screen{zoom:.72;transform:none;margin:0;flex-basis:280px;max-width:280px}
 @media(max-width:900px){.folder-stack>.folder .concept-screen{zoom:.68;transform:none;margin:0;flex-basis:280px;max-width:280px}}
 @media(max-width:650px){.folder-stack>.folder .concept-screen{zoom:.68;transform:none;margin:0}}
+
+/* Authentic Unity Hub screens, presented together rather than reconstructed. */
+.folder-stack>.folder .project-visual.unity-showcase,.work-card-preview .project-visual.unity-showcase{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;align-items:stretch;justify-content:normal;gap:18px;padding:24px 18px 18px;background:#09080b;border:1px solid #b99de040;border-radius:12px;color:#f1e8ff}
+.unity-showcase-heading{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.unity-showcase-heading>span{font:400 28px/1 Georgia;letter-spacing:-.8px;color:#ece4ff}
+.unity-showcase-heading>small{font:7px/1.7 monospace;letter-spacing:1px;text-align:right;max-width:130px;color:#c1abe8}
+.unity-screens{display:flex;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:0;background:#000;border-radius:12px;padding:14px 6px}
+.unity-shot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;flex:1;min-width:0;min-height:0;max-height:100%;align-self:stretch}
+.unity-shot img{display:block;width:100%;height:auto;max-height:calc(100% - 28px);object-fit:contain}
+.unity-shot>span{font:7px/1.5 monospace;letter-spacing:.7px;white-space:nowrap;color:#c1abe8}
+.folder-stack>.folder .project-visual.unity-showcase figcaption,.work-card-preview .project-visual.unity-showcase figcaption{position:static;align-self:end;text-align:center;color:#c1abe8;font:7px/1.6 monospace;letter-spacing:.7px;margin:0}
+.work-card-preview .project-visual.unity-showcase{height:100%;border-radius:0;gap:14px;padding:24px 18px 14px}
+.work-card-preview .unity-showcase-heading>span{font-size:25px}
+.work-card-preview .unity-screens{padding:8px 3px;gap:5px}
+.work-card-preview .unity-shot{gap:8px}.work-card-preview .unity-shot>span{font-size:6px}
+@media(max-width:900px){.folder-stack>.folder .project-visual.unity-showcase{padding:23px 12px 16px;gap:16px}.unity-showcase-heading{flex-direction:column;align-items:flex-start;gap:7px}.unity-showcase-heading>small{max-width:none;text-align:left;font-size:6px}.unity-showcase-heading>span{font-size:25px}.unity-screens{gap:4px;padding:10px 2px}.unity-shot>span{font-size:6px;letter-spacing:0}}
+@media(max-width:650px){.folder-stack>.folder .project-visual.unity-showcase{height:380px;gap:15px}.unity-showcase-heading{flex-direction:row;align-items:center}.unity-showcase-heading>small{max-width:130px;text-align:right}.unity-shot{gap:8px}.unity-shot>span{font-size:6px}}
