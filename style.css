@@ -390,3 +390,70 @@ body.paused .idea-card{animation-play-state:paused}
 @media(max-width:1000px){.idea-hero>.board-motto{left:50%;right:auto;transform:translateX(-50%);top:calc(39% + 525px);width:80%;max-width:670px}}
 @media(max-width:600px){.idea-hero>.board-motto{top:calc(40% + 485px);width:91%;max-width:none;font-size:7px;letter-spacing:.7px}.idea-board .idea-unity{top:56%;height:38%}}
 @media print{.idea-hero>.board-motto{display:none}}
+
+/* Responsive access: readable labels, generous controls, and natural page reflow. */
+nav a{min-height:44px;display:inline-flex;align-items:center}
+nav .brand{flex-shrink:0}
+nav div{flex-wrap:wrap}
+.hero-caption p{font-size:14px}
+.idea-card-meta{font-size:10px;letter-spacing:.2px}
+.idea-card-footer{font-size:11px}
+.board-heading,.idea-board .board-heading{font-size:10px}
+.board-instruction{font-size:10px;letter-spacing:0}
+.idea-hero>.board-motto{font-size:10px;color:#63516f}
+.folder-category,.folder-date,.folder-facts dt{font-size:11px}
+.folder-nav{font-size:12px;line-height:1.5;min-height:64px}
+.folder-stack>.folder .project-visual figcaption,
+.work-card-preview .project-visual figcaption{font-size:11px;line-height:1.6;letter-spacing:0}
+.unity-showcase-heading>small,.unity-shot>span,.work-card-preview .unity-shot>span{font-size:10px;white-space:normal}
+.work-card-open>p,.work-card-caption>span{font-size:12px;color:#63566e}
+.skills-status,.skills-heading p{font-size:12px}
+dialog{max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain}
+#close{min-height:44px;min-width:76px;font-size:13px}
+dialog p,dialog li{color:#44374f}
+dialog .disclosure{font-size:13px;line-height:1.7}
+.hero-action{font-size:13px}
+.contactrow a,.textlink{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
+footer{flex-wrap:wrap;font-size:11px}
+@media(pointer:coarse){.idea-card{touch-action:pan-y;cursor:pointer}}
+@media(max-width:1000px){
+ .idea-hero{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column;gap:28px;padding:24px 5% 32px}
+ .idea-hero .topline,.idea-hero .hero-caption,.idea-hero .hero-bottom{position:static;max-width:none}
+ .idea-hero .hero-caption{margin:10px 0 0}
+ .idea-board{position:relative;top:auto;left:auto;right:auto;transform:none;width:100%;max-width:750px;height:550px;align-self:center;margin-top:8px}
+ .idea-hero>.board-motto{position:static;transform:none;width:100%;max-width:none;margin:0;text-align:center}
+ .idea-hero .hero-bottom{margin-top:10px;flex-wrap:wrap;font-size:11px}
+ .hero-bottom>div{max-width:none}
+ .idea-card strong{font-size:32px}
+}
+@media(max-width:600px){
+ nav{height:auto;min-height:76px;gap:12px;padding-block:10px}
+ nav div{gap:4px 12px;justify-content:flex-end;font-size:11px;letter-spacing:.3px}
+ .idea-hero .hero-caption h1{font-size:clamp(36px,10vw,48px)}
+ .idea-board{height:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:30px;padding:64px 22px 68px;max-width:420px;border-width:9px}
+ .idea-board .idea-card{position:relative;left:auto;top:auto;width:100%;height:auto;min-height:190px;padding:28px 18px 16px;touch-action:pan-y;cursor:pointer;will-change:auto}
+ .idea-board .idea-card strong{font-size:32px;margin:18px 0}
+ .idea-card-meta{font-size:11px}
+ .idea-card-footer{font-size:12px}
+ .idea-symbol{top:48px;width:50px;opacity:.25}
+ .idea-board .board-heading{font-size:10px;letter-spacing:.4px}
+ .idea-board .board-instruction{font-size:10px;max-width:calc(100% - 24px)}
+ .folder-nav{font-size:10px;padding:12px 7px;overflow-wrap:anywhere}
+ .folder-stack>.folder .folder-header h2{font-size:clamp(28px,8vw,34px)}
+ .folder-stack>.folder{position:relative;top:auto!important;min-height:0}
+ .folder-stack>.folder .project-visual.unity-showcase{height:400px}
+ .unity-showcase-heading{flex-wrap:wrap}
+ .unity-showcase-heading>small{max-width:none;text-align:left}
+ .work-heading h1{font-size:clamp(48px,15vw,64px);letter-spacing:-2px}
+ .work-card-caption{flex-wrap:wrap;gap:6px}
+ .skills-heading{flex-wrap:wrap}
+ .skills-heading p,.skills-status{font-size:12px}
+ .skills-footer{flex-wrap:wrap}
+ .skill-slide li{font-size:13px}
+ dialog{width:calc(100% - 24px);padding:20px}
+ dialog h2{font-size:32px;overflow-wrap:anywhere}
+ .project-dialog-heading{align-items:flex-start}
+ .sectionhead{font-size:11px;letter-spacing:.3px}
+ .education,.experience>span{font-size:12px}
+}
+@media(forced-colors:active){a:focus-visible,button:focus-visible,.skills-track:focus-visible{outline-color:Highlight}.idea-card{border:2px solid ButtonText}.role-star{color:CanvasText}}

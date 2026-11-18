@@ -87,12 +87,15 @@ if(folderStack){
 const ideaBoard=document.querySelector('#idea-board');
 if(ideaBoard){
   let layer=3;
+  const boardInstruction=ideaBoard.querySelector('#board-instruction');
+  function updateBoardInstruction(){if(boardInstruction)boardInstruction.textContent=matchMedia('(pointer:coarse), (max-width:600px)').matches?'TAP A PROJECT TO OPEN':'DRAG TO ARRANGE · CLICK TO OPEN A PROJECT'}
+  updateBoardInstruction();window.addEventListener('resize',updateBoardInstruction);
   const ideaCards=[...ideaBoard.querySelectorAll('.idea-card')];
   ideaCards.forEach(card=>{
     let drag=null,suppressClick=false,x=0,y=0;
     card.setAttribute('aria-describedby','board-instruction');
     card.addEventListener('pointerdown',event=>{
-      if(!event.isPrimary||event.button!==0)return;
+      if(!event.isPrimary||event.button!==0||event.pointerType==='touch'||matchMedia('(max-width:600px)').matches)return;
       suppressClick=false;
       drag={id:event.pointerId,startX:event.clientX,startY:event.clientY,x,y,moved:false};
       card.style.zIndex=String(++layer);
