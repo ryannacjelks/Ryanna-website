@@ -379,3 +379,7 @@ body.paused .idea-card{animation-play-state:paused}
 
 /* Keep the board instruction label in the bottom-right corner. */
 .idea-board .board-instruction{left:auto;right:12px;bottom:10px;transform:rotate(.4deg);text-align:right}
+
+/* Place the personal motto along the bottom of the cork board. */
+.board-motto{position:absolute;left:18px;bottom:15px;max-width:45%;font:7px/1.6 monospace;letter-spacing:.6px;color:#5b3d26;pointer-events:none}
+@media(max-width:600px){.board-motto{left:14px;bottom:37px;max-width:calc(100% - 28px);font-size:6px;letter-spacing:.3px}.idea-board .idea-unity{top:52%;height:34%}}
