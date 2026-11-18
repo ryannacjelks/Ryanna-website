@@ -6,16 +6,17 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 
 ## Features
 
-- **Interactive cork bulletin board:** a textured cork surface, wooden frame, pastel project notes, and star, heart, and flower thumbtacks. Drag notes to arrange them, or click a note to open its project description. Each note is a native button with keyboard support. Dragging does not open the description.
+- **Interactive cork bulletin board:** a textured cork surface, wooden frame, pastel project notes, and star, heart, and flower thumbtacks. On desktop, drag notes to arrange them or click to open a project description. Narrow screens show the notes vertically, and touch input scrolls the page instead of dragging notes. Each note is a native button with keyboard support. Dragging does not open the description.
 - **Consistent project colors:** pinned notes, thumbtacks, featured folders, and project description backgrounds share each project’s palette.
 - **Board details:** the drag-and-click instruction sits inside the bottom-right corner; “MOVE AN IDEA. MAKE A CONNECTION.” is centered underneath the board.
-- **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The persistent angled tabs navigate between projects. Each folder presents the title, date, role, focus, summary, highlights, and an Open Project button.
+- **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. On narrow screens, folders use normal vertical scrolling so their content stays readable. The persistent angled tabs navigate between projects. Each folder presents the title, date, role, focus, summary, highlights, and an Open Project button.
 - **All Work gallery:** a responsive two-column project index with description dialogs and project-specific icons.
 - **Project resources:** presentation PDFs and Figma links are available inside the project dialogs.
 - **Technical skills carousel:** computer skills, coding skills, and certificates, with swipe, arrow-button, and keyboard navigation.
 - **About and leadership sections:** portrait, “people first.” sticker, education, and campus leadership experience.
 - **Resume access:** view or download the latest PDF from the homepage.
-- **Accessibility features:** skip link, visible focus styles, native dialogs, reduced-motion support, and print styles.
+- **Email contact options:** “Email me” expands to offer the visitor’s email app, Gmail, Outlook, and a copy-address button. The address is also available in a read-only field for manual copying.
+- **Accessibility features:** skip link, visible focus styles, keyboard-operated project buttons and dialogs, readable labels, generous controls, scrollable dialogs, reduced-motion support, forced-color focus styles, and print styles.
 
 ## Projects
 
@@ -66,6 +67,27 @@ A shorter notice appears beneath both previews on Featured Work and All Work:
 
 When updating project visuals, keep the captions in `index.html` and `work.html`, the project notes in `app.js`, and this section consistent with how the assets were created.
 
+## Mobile and desktop behavior
+
+- The hero switches to a flowing layout on tablet-sized screens; phone-sized screens show one pinned project note per row.
+- The All Work gallery uses two columns on desktop and one column on phones.
+- Project descriptions scroll within the viewport. Escape closes a dialog and returns focus to its opening control.
+- Touchscreen visitors can tap projects and scroll naturally. Desktop visitors can also rearrange the board notes.
+- The skills carousel supports touch scrolling, buttons, and keyboard controls.
+
+Live checks covered narrow reflow at approximately 340 CSS pixels and desktop layout at 1363 CSS pixels, including project dialogs, gallery layout, keyboard activation, focus return, and carousel controls. These checks are not a full accessibility certification or a test on every physical device.
+
+## Contact behavior
+
+“Email me” opens contact choices directly on the page rather than relying only on a `mailto:` handler, which requires a configured email app.
+
+- **Open email app:** uses `mailto:ryajelks@iu.edu`.
+- **Compose in Gmail / Outlook:** opens a browser-based draft addressed to Ryanna; the visitor signs in if needed and sends it themselves.
+- **Copy email address:** uses the browser Clipboard API and announces success. If copying is unavailable or denied, the address field is selected for manual copying.
+- The expandable choices and email links remain available without JavaScript. The copy button appears when JavaScript is active.
+
+The portfolio does not submit or send email itself.
+
 ## Run locally
 
 From the repository root, start a static server with Python 3:
@@ -87,7 +109,7 @@ There is no Play/Pause motion button or automatic cork-board animation. Reduced-
 | `index.html` | Cork bulletin board, featured folders, about, leadership, skills, and contact |
 | `work.html` | All Work gallery |
 | `style.css` | Shared layout, responsive styling, illustrations, and accessibility styles |
-| `app.js` | Shared project data, description colors, dialogs, icons, folder navigation, skills carousel, and note dragging |
+| `app.js` | Shared project data, description colors, dialogs, icons, folder navigation, skills carousel, note dragging, and email address copying |
 | `images/` | Portrait, original Unity Hub screens, and project illustrations |
 | `ryanna-jelks-resume.pdf` | Current downloadable resume |
 | `P2T5_Twitch.pdf` | Twitch presentation |
@@ -115,6 +137,10 @@ There is no Play/Pause motion button or automatic cork-board animation. Reduced-
 
 When changing shared CSS or JavaScript, refresh the relevant `?v=` values in **both HTML pages** to avoid stale browser caches.
 
+### Contact details
+
+If the email address changes, update every occurrence in `index.html`: the summary, email-app link, Gmail and Outlook compose URLs, and read-only address field. The copy handler in `app.js` reads the field value. Keep the address in this README consistent too.
+
 ## Deploy and verify
 
 The site is hosted on GitHub Pages. Changes committed and pushed to `main` trigger the **pages build and deployment** workflow.
@@ -124,4 +150,5 @@ After publishing:
 - Confirm the deployment succeeded in the repository’s **Actions** tab.
 - Check both the homepage and All Work gallery.
 - Verify pinned-note clicks and dragging, matching description colors, project icons, Figma and PDF links, resume downloads, stacked-folder navigation, and the skills carousel.
-- Check a narrow screen layout and keyboard navigation.
+- Check a narrow screen layout and keyboard navigation, including Escape and focus return from dialogs.
+- Open “Email me,” verify the compose links address the correct recipient, and check the copy-address confirmation and manual-copy fallback.
