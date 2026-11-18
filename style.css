@@ -457,3 +457,19 @@ footer{flex-wrap:wrap;font-size:11px}
  .education,.experience>span{font-size:12px}
 }
 @media(forced-colors:active){a:focus-visible,button:focus-visible,.skills-track:focus-visible{outline-color:Highlight}.idea-card{border:2px solid ButtonText}.role-star{color:CanvasText}}
+
+/* Native expandable contact choices, with a manual copy fallback. */
+.email-contact{min-width:0}
+.email-contact summary{cursor:pointer;min-height:44px;padding:8px 0;list-style:none}
+.email-contact summary::-webkit-details-marker{display:none}
+.email-contact summary::after{content:' +';font-size:18px}
+.email-contact[open] summary::after{content:' −'}
+.email-contact summary:focus-visible,.email-options input:focus-visible{outline:3px solid #785a85;outline-offset:5px}
+.email-options{margin-top:14px;padding:18px;border:1px solid #88779870;border-radius:12px;background:#fff8ff;color:#3e3552}
+.email-options p{font-size:13px;line-height:1.6;margin:0 0 12px}
+.email-options a{display:flex;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.email-options button{min-height:44px;padding:10px 14px;margin:8px 0 16px;border:1px solid #655378;border-radius:8px;background:#3e3552;color:white;font-size:13px}
+.email-options label{display:block;font-size:12px;margin-bottom:5px}
+.email-options input{width:100%;min-width:0;min-height:44px;border:1px solid #887798;border-radius:6px;padding:9px;font:16px Arial,sans-serif;color:#3e3552;background:white}
+.email-options #email-status{margin:10px 0 0}
+.email-contact small{display:block}

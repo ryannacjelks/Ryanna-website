@@ -126,3 +126,20 @@ if(ideaBoard){
     window.addEventListener('resize',()=>{x=0;y=0;drag=null;suppressClick=false;card.style.translate='0px 0px';card.classList.remove('is-dragging')});
   });
 }
+
+/* Contact options work without an installed mail handler. */
+const copyEmail=document.querySelector('#copy-email');
+if(copyEmail){
+  const address=document.querySelector('#contact-email');
+  const status=document.querySelector('#email-status');
+  copyEmail.hidden=false;
+  copyEmail.addEventListener('click',async()=>{
+    try{
+      await navigator.clipboard.writeText(address.value);
+      status.textContent='Email address copied.';
+    }catch{
+      address.focus();address.select();
+      status.textContent='Select and copy the email address above.';
+    }
+  });
+}
