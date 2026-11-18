@@ -82,3 +82,44 @@ if(folderStack){
   const observer=new ResizeObserver(sizeFolders);panels.forEach(panel=>observer.observe(panel));
   sizeFolders();
 }
+
+/* Arrange individual idea cards; a click still opens the original project dialog. */
+const ideaBoard=document.querySelector('#idea-board');
+if(ideaBoard){
+  let layer=3;
+  const ideaCards=[...ideaBoard.querySelectorAll('.idea-card')];
+  ideaCards.forEach(card=>{
+    let drag=null,suppressClick=false,x=0,y=0;
+    card.setAttribute('aria-describedby','board-instruction');
+    card.addEventListener('pointerdown',event=>{
+      if(!event.isPrimary||event.button!==0)return;
+      suppressClick=false;
+      drag={id:event.pointerId,startX:event.clientX,startY:event.clientY,x,y,moved:false};
+      card.style.zIndex=String(++layer);
+      card.setPointerCapture(event.pointerId);
+    });
+    card.addEventListener('pointermove',event=>{
+      if(!drag||drag.id!==event.pointerId)return;
+      const dx=event.clientX-drag.startX,dy=event.clientY-drag.startY;
+      if(Math.hypot(dx,dy)>7)drag.moved=true;
+      if(!drag.moved)return;
+      card.classList.add('is-dragging');
+      x=Math.max(10-card.offsetLeft,Math.min(ideaBoard.clientWidth-card.offsetWidth-card.offsetLeft-10,drag.x+dx));
+      y=Math.max(42-card.offsetTop,Math.min(ideaBoard.clientHeight-card.offsetHeight-card.offsetTop-40,drag.y+dy));
+      card.style.translate=x+'px '+y+'px';
+    });
+    function endDrag(event){
+      if(!drag||drag.id!==event.pointerId)return;
+      suppressClick=drag.moved;
+      drag=null;card.classList.remove('is-dragging');
+      if(card.hasPointerCapture(event.pointerId))card.releasePointerCapture(event.pointerId);
+    }
+    card.addEventListener('pointerup',endDrag);
+    card.addEventListener('pointercancel',endDrag);
+    card.addEventListener('lostpointercapture',()=>{if(drag){suppressClick=drag.moved;drag=null;card.classList.remove('is-dragging')}});
+    card.addEventListener('click',event=>{
+      if(event.detail!==0&&suppressClick){event.preventDefault();event.stopImmediatePropagation();suppressClick=false}
+    },true);
+    window.addEventListener('resize',()=>{x=0;y=0;drag=null;suppressClick=false;card.style.translate='0px 0px';card.classList.remove('is-dragging')});
+  });
+}

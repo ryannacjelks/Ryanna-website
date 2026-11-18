@@ -1,12 +1,12 @@
 # Ryanna Jelks — Portfolio
 
-A personal portfolio showcasing UX/UI design, human-centered computing, and community leadership. Built with HTML, CSS, JavaScript, and Three.js, with a pastel visual style and interactive project navigation.
+A personal portfolio showcasing UX/UI design, human-centered computing, and community leadership. Built with HTML, CSS, and JavaScript, with a pastel visual style and interactive project navigation.
 
 **[Visit the portfolio](https://ryannacjelks.github.io/Ryanna-website/)** · **[See All Work](https://ryannacjelks.github.io/Ryanna-website/work.html)**
 
 ## Features
 
-- **Interactive 3D keychain:** click or tap a charm to open its project description; drag to rotate. Keyboard users can focus the keychain, choose a project with the arrow keys, and open it with Enter or Space.
+- **Interactive idea board:** arrange three project cards by dragging, or click a card to open its project description. Each card is a native button with keyboard support; reduced-motion and pause controls are respected.
 - **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The angled tabs navigate between projects.
 - **All Work gallery:** a responsive two-column project index with description dialogs and project-specific icons.
 - **Project resources:** presentation PDFs and Figma links are available inside the project dialogs.
@@ -36,7 +36,7 @@ python3 -m http.server 8000
 
 Open [http://localhost:8000](http://localhost:8000) for the homepage or [http://localhost:8000/work.html](http://localhost:8000/work.html) for the gallery.
 
-No package installation or build step is required. Use a local server instead of opening the HTML files directly, because the keychain uses JavaScript modules. The 3D scene requires WebGL; a project-navigation fallback appears when it is unavailable.
+No package installation or build step is required. The site runs without WebGL or a 3D engine. A local server is recommended when previewing pages and assets.
 
 ## Source files
 
@@ -46,8 +46,6 @@ No package installation or build step is required. Use a local server instead of
 | `work.html` | All Work gallery |
 | `style.css` | Shared layout, responsive styling, illustrations, and accessibility styles |
 | `app.js` | Shared project data, dialogs, icons, folder navigation, and skills carousel |
-| `keychain.js` | Three.js keychain scene and interaction handlers |
-| `three.module.js` | Locally hosted Three.js module |
 | `images/` | Portrait, original Unity Hub screens, and project illustrations |
 | `ryanna-jelks-resume.pdf` | Current downloadable resume |
 | `P2T5_Twitch.pdf` | Twitch presentation |
@@ -67,7 +65,7 @@ No package installation or build step is required. Use a local server instead of
 - Edit featured summaries and role lists in `index.html`.
 - Edit gallery cards in `work.html`.
 - Edit the shared `data` object in `app.js` for dialog titles, roles, descriptions, highlights, notes, and resource links.
-- Keep project IDs consistent across the HTML buttons, `app.js`, and `keychain.js`.
+- Keep project IDs consistent across the HTML buttons, `app.js`, and the idea-board buttons in `index.html`.
 - Put new visual assets in `images/` and provide descriptive alternative text.
 - Keep presentation and Figma links inside the dialogs.
 

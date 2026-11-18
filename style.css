@@ -308,3 +308,34 @@ dialog .project-dialog-heading h2{padding:0;margin:0;clear:none;font-size:clamp(
 .project-dialog-icon.icon-unity{background:#eee4ff;color:#8760b5}
 .project-dialog-icon.icon-accenture{background:#f5dcf2;color:#905a9c}
 @media(max-width:600px){.project-dialog-heading{gap:12px}.project-dialog-icon{flex-basis:40px;width:40px;height:40px;border-radius:12px}.project-dialog-icon svg{width:22px;height:22px}}
+
+/* An original, tactile idea board replaces the 3D keychain. */
+.idea-hero{min-height:800px}
+.idea-hero .hero-caption{top:36%;max-width:36%}
+.idea-board{position:absolute;right:4%;top:16%;width:55%;max-width:750px;height:550px;border:1px solid #9a7aaf30;border-radius:34px;background-color:#fbf5ff80;background-image:radial-gradient(#a08bb550 1px,transparent 1px);background-size:22px 22px;isolation:isolate;box-shadow:0 20px 70px #7a5b8b0c}
+.board-heading{position:absolute;left:24px;right:24px;top:17px;display:flex;align-items:center;justify-content:space-between;font:9px monospace;letter-spacing:1.4px;color:#786487}
+.board-heading>span:last-child{font-size:24px;color:#b69ac6}
+.board-thread{position:absolute;height:1px;background:#ad94bd65;transform-origin:left center;pointer-events:none}
+.thread-one{left:20%;top:42%;width:56%;transform:rotate(17deg)}
+.thread-two{left:68%;top:35%;width:36%;transform:rotate(120deg)}
+.idea-card{--card-angle:0deg;position:absolute;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;text-align:left;width:43%;height:39%;padding:19px;border:1px solid #6a537b40;border-radius:16px;box-shadow:0 9px 0 #6750780b,0 17px 25px #5e467315;transform:rotate(var(--card-angle));cursor:grab;touch-action:none;user-select:none;will-change:translate;transition:box-shadow .2s,border-color .2s;animation:idea-turn 7s ease-in-out infinite}
+.idea-twitch{--card-angle:-7deg;left:5%;top:11%;background:#d6c7f6;color:#50336f;z-index:1}
+.idea-meta{--card-angle:6deg;left:51%;top:15%;background:#cbdff8;color:#34537d;z-index:2;animation-delay:-2.7s}
+.idea-unity{--card-angle:-2deg;left:28%;top:55%;background:#f5d5d8;color:#7b455e;z-index:3;animation-delay:-4.3s}
+.idea-card:hover,.idea-card:focus-visible{border-color:currentColor;box-shadow:0 12px 0 #67507809,0 20px 35px #5e467326;animation-play-state:paused}
+.idea-card:focus-visible{outline:3px solid #785a85;outline-offset:5px}
+.idea-card.is-dragging{cursor:grabbing;animation:none;transform:rotate(0deg);box-shadow:0 24px 38px #5e467333}
+.idea-card-meta{font:8px/1.5 monospace;letter-spacing:.6px}
+.idea-symbol{position:absolute;right:16px;top:42px;width:64px;height:50px;opacity:.45;pointer-events:none}
+.idea-symbol svg{width:100%;height:100%}
+.idea-card strong{font:400 clamp(24px,2.5vw,37px)/1.02 Georgia;letter-spacing:-1px;margin:auto 0 12px}
+.idea-card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:11px;border-top:1px solid #6a537b35;font:8px/1.5 monospace}
+.idea-card-footer>span{font-size:20px;line-height:1}
+.board-instruction{position:absolute;bottom:15px;left:15px;right:15px;text-align:center;font:8px/1.6 monospace;letter-spacing:.7px;color:#786487;pointer-events:none}
+body.paused .idea-card{animation-play-state:paused}
+@keyframes idea-turn{0%,100%{transform:rotate(var(--card-angle))}50%{transform:rotate(calc(var(--card-angle) + 1.3deg))}}
+@media(min-width:1600px){.idea-board{right:7%;width:52%}}
+@media(max-width:1000px){.idea-hero{height:1020px;min-height:1020px;max-height:none}.idea-hero .hero-caption{top:7%;max-width:85%}.idea-board{top:39%;left:50%;right:auto;transform:translateX(-50%);width:80%;height:510px;max-width:670px}.idea-card strong{font-size:32px}.idea-board .board-heading{font-size:9px}}
+@media(max-width:600px){.idea-hero{height:940px;min-height:940px}.idea-hero .hero-caption{top:7%;left:6%;max-width:88%}.idea-board{top:40%;width:91%;height:470px;border-radius:24px}.idea-card{padding:15px;width:44%;height:38%;border-radius:12px}.idea-twitch{left:4%;top:12%}.idea-meta{left:51%;top:17%}.idea-unity{left:28%;top:56%}.idea-card strong{font-size:27px}.idea-symbol{width:44px;height:34px;right:11px;top:39px;opacity:.28}.idea-card-meta{font-size:6px;letter-spacing:.2px}.idea-card-footer{font-size:7px;padding-top:8px}.board-heading{left:18px;right:18px}.board-instruction{font-size:7px;letter-spacing:.1px}}
+@media(prefers-reduced-motion:reduce){.idea-card{animation:none!important}}
+@media print{.idea-board{display:none!important}.idea-hero{height:auto;min-height:0}.idea-hero .hero-caption{position:static;max-width:none}}
