@@ -6,14 +6,14 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 
 ## Features
 
-- **Interactive cork bulletin board:** arrange pastel project notes by dragging, or click a note to open its project description. Star, heart, and flower thumbtacks give each project a distinct accent. Each card is a native button with keyboard support; reduced-motion and pause controls are respected.
+- **Interactive cork bulletin board:** arrange pastel project notes by dragging, or click a note to open its project description. Star, heart, and flower thumbtacks give each project a distinct accent. Each card is a native button with keyboard support; reduced-motion preferences are respected.
 - **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The angled tabs navigate between projects.
 - **All Work gallery:** a responsive two-column project index with description dialogs and project-specific icons.
 - **Project resources:** presentation PDFs and Figma links are available inside the project dialogs.
 - **Technical skills carousel:** computer skills, coding skills, and certificates, with swipe, arrow-button, and keyboard navigation.
 - **About and leadership sections:** portrait, “people first.” sticker, education, and campus leadership experience.
 - **Resume access:** view or download the latest PDF from the homepage.
-- **Accessibility features:** skip link, visible focus styles, native dialogs, motion controls, reduced-motion support, and print styles.
+- **Accessibility features:** skip link, visible focus styles, native dialogs, reduced-motion support, and print styles.
 
 ## Projects
 
