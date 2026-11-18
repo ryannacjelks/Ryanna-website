@@ -6,7 +6,7 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 
 ## Features
 
-- **Interactive idea board:** arrange three project cards by dragging, or click a card to open its project description. Each card is a native button with keyboard support; reduced-motion and pause controls are respected.
+- **Interactive cork bulletin board:** arrange pastel project notes by dragging, or click a note to open its project description. Star, heart, and flower thumbtacks give each project a distinct accent. Each card is a native button with keyboard support; reduced-motion and pause controls are respected.
 - **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The angled tabs navigate between projects.
 - **All Work gallery:** a responsive two-column project index with description dialogs and project-specific icons.
 - **Project resources:** presentation PDFs and Figma links are available inside the project dialogs.

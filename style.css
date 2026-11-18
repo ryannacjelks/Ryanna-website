@@ -339,3 +339,23 @@ body.paused .idea-card{animation-play-state:paused}
 @media(max-width:600px){.idea-hero{height:940px;min-height:940px}.idea-hero .hero-caption{top:7%;left:6%;max-width:88%}.idea-board{top:40%;width:91%;height:470px;border-radius:24px}.idea-card{padding:15px;width:44%;height:38%;border-radius:12px}.idea-twitch{left:4%;top:12%}.idea-meta{left:51%;top:17%}.idea-unity{left:28%;top:56%}.idea-card strong{font-size:27px}.idea-symbol{width:44px;height:34px;right:11px;top:39px;opacity:.28}.idea-card-meta{font-size:6px;letter-spacing:.2px}.idea-card-footer{font-size:7px;padding-top:8px}.board-heading{left:18px;right:18px}.board-instruction{font-size:7px;letter-spacing:.1px}}
 @media(prefers-reduced-motion:reduce){.idea-card{animation:none!important}}
 @media print{.idea-board{display:none!important}.idea-hero{height:auto;min-height:0}.idea-hero .hero-caption{position:static;max-width:none}}
+
+/* Warm cork, wooden edging, and playful enamel thumbtacks. */
+.idea-board{border:12px solid #b78155;border-radius:22px;background-color:#cda574;background-image:radial-gradient(ellipse at 14% 30%,#835e3540 0 1px,transparent 1.8px),radial-gradient(ellipse at 70% 60%,#fff1c447 0 1.3px,transparent 2.2px),radial-gradient(ellipse at 38% 80%,#7e552c26 0 1px,transparent 2px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='cork'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.42' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23725336' opacity='.22' filter='url(%23cork)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");background-size:9px 13px,14px 11px,17px 19px,180px 180px;box-shadow:0 2px 0 2px #e1b88b,inset 0 0 0 2px #8e623a80,inset 0 3px 14px #633a2733,0 22px 50px #72483026}
+.board-heading{top:13px;left:18px;right:18px;color:#5b3d26;font-size:8px;letter-spacing:1.5px}
+.board-heading>span:first-child{background:#fff7e5d9;padding:5px 9px;box-shadow:1px 2px 3px #69482c19;transform:rotate(-2deg)}
+.board-heading>span:last-child{color:#725031;font-size:23px}
+.idea-card{padding-top:30px;border:1px solid #795f4c30;border-radius:4px 4px 9px 4px;box-shadow:1px 5px 8px #5e3c2433;animation:none;background-image:linear-gradient(110deg,#ffffff22,transparent 70%)}
+.idea-twitch{background-color:#e5d6fa;color:#50336f}
+.idea-meta{background-color:#d5e6fa;color:#34537d}
+.idea-unity{background-color:#f9dfe3;color:#7b455e}
+.idea-card:hover,.idea-card:focus-visible{box-shadow:1px 7px 12px #5e3c2440}
+.idea-card.is-dragging{box-shadow:4px 22px 26px #5e3c2445;transform:rotate(0deg)}
+.board-pin{position:absolute;top:-17px;left:50%;width:38px;height:42px;transform:translateX(-50%) rotate(8deg);z-index:1;pointer-events:none}
+.board-pin:before{content:"";position:absolute;left:18px;top:24px;width:3px;height:17px;border-radius:2px;background:linear-gradient(90deg,#88847b,#f2efe6,#797367);transform:rotate(-14deg);box-shadow:3px 3px 3px #4c332a38}
+.board-pin svg{position:relative;display:block;width:38px;height:38px;filter:drop-shadow(2px 4px 2px #65412755)}
+.pin-meta{transform:translateX(-50%) rotate(-12deg)}
+.pin-unity{transform:translateX(-50%) rotate(15deg)}
+.idea-symbol{top:52px}
+.board-instruction{bottom:11px;left:50%;right:auto;transform:translateX(-50%) rotate(.4deg);width:max-content;max-width:calc(100% - 28px);padding:6px 9px;background:#fff7e5e8;color:#65452c;border-radius:2px;box-shadow:1px 2px 3px #69482c19;font-size:7px}
+@media(max-width:600px){.idea-board{border-width:9px;border-radius:17px}.idea-card{padding-top:26px}.board-pin{width:32px;height:36px;top:-15px}.board-pin svg{width:32px;height:32px}.board-pin:before{left:15px;top:21px;height:13px}.board-heading{top:13px;font-size:7px}.idea-symbol{top:44px}.board-instruction{font-size:6px;letter-spacing:.1px;padding:6px 7px}}
