@@ -383,3 +383,10 @@ body.paused .idea-card{animation-play-state:paused}
 /* Place the personal motto along the bottom of the cork board. */
 .board-motto{position:absolute;left:18px;bottom:15px;max-width:45%;font:7px/1.6 monospace;letter-spacing:.6px;color:#5b3d26;pointer-events:none}
 @media(max-width:600px){.board-motto{left:14px;bottom:37px;max-width:calc(100% - 28px);font-size:6px;letter-spacing:.3px}.idea-board .idea-unity{top:52%;height:34%}}
+
+/* Center the motto underneath the board, outside the cork surface. */
+.idea-hero>.board-motto{position:absolute;left:auto;right:4%;top:calc(16% + 565px);bottom:auto;width:55%;max-width:750px;text-align:center;color:#786487;font:8px/1.6 monospace;letter-spacing:1px}
+@media(min-width:1600px){.idea-hero>.board-motto{right:7%;width:52%}}
+@media(max-width:1000px){.idea-hero>.board-motto{left:50%;right:auto;transform:translateX(-50%);top:calc(39% + 525px);width:80%;max-width:670px}}
+@media(max-width:600px){.idea-hero>.board-motto{top:calc(40% + 485px);width:91%;max-width:none;font-size:7px;letter-spacing:.7px}.idea-board .idea-unity{top:56%;height:38%}}
+@media print{.idea-hero>.board-motto{display:none}}
