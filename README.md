@@ -41,7 +41,30 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 - **Unity Hub:** three original Figma screens showing Home, Discover, and Profile.
 - **Accenture:** a process illustration for a Forage learning simulation, not employment.
 
-Twitch and Meta previews are AI-generated compositions based on real screens from the Figma prototypes, arranged together to illustrate each user flow; they are not unaltered interface exports. Original Figma and presentation links are available inside the project dialogs. The Meta description lists each role separately with mini-star markers. Description dialogs opened from All Work include a small project-specific icon.
+The Meta description lists each role separately with mini-star markers. Description dialogs opened from All Work include a small project-specific icon.
+
+## Transparency and AI-assisted presentation
+
+The portfolio distinguishes original prototype screens from illustrations created to present the work.
+
+| Project | Preview source and treatment |
+| --- | --- |
+| Twitch — Community Climb | AI-generated composition based on real screens from the Figma prototype, arranged into a three-phone presentation of the user flow. |
+| Meta — Where Plans Go to Die? | AI-generated composition based on real screens from the Figma prototype, arranged into a four-phone presentation of event creation, individual invitations, sharing in the group chat, and RSVPs. |
+| Unity Hub | Original Figma screenshots showing Home, Discover, and Profile, including sample profile and event content from the prototype. |
+| Accenture North America | Process illustration for a Forage learning simulation; not original client screens or employment at Accenture. |
+
+AI-generated compositions are presentation illustrations, not unaltered exports of the interfaces. The original Figma designs and presentation PDFs are linked inside the project descriptions so visitors can review the source work.
+
+The Twitch and Meta project descriptions include this notice:
+
+> Based on real screens from my Figma prototype. AI was used to create this composition and arrange the screens together to illustrate the user flow. View the original design in Figma.
+
+A shorter notice appears beneath both previews on Featured Work and All Work:
+
+> Based on real Figma screens · AI-generated flow composition
+
+When updating project visuals, keep the captions in `index.html` and `work.html`, the project notes in `app.js`, and this section consistent with how the assets were created.
 
 ## Run locally
 
