@@ -41,7 +41,7 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 - **Unity Hub:** three original Figma screens showing Home, Discover, and Profile.
 - **Accenture:** a process illustration for a Forage learning simulation, not employment.
 
-Twitch and Meta illustrations are based on the supplied Figma designs; they are not original interface exports. Original Figma and presentation links are available inside the project dialogs. The Meta description lists each role separately with mini-star markers. Description dialogs opened from All Work include a small project-specific icon.
+Twitch and Meta previews are AI-generated compositions based on real screens from the Figma prototypes, arranged together to illustrate each user flow; they are not unaltered interface exports. Original Figma and presentation links are available inside the project dialogs. The Meta description lists each role separately with mini-star markers. Description dialogs opened from All Work include a small project-specific icon.
 
 ## Run locally
 
