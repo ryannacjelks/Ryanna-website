@@ -6,8 +6,10 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 
 ## Features
 
-- **Interactive cork bulletin board:** arrange pastel project notes by dragging, or click a note to open its project description. Star, heart, and flower thumbtacks give each project a distinct accent. Each card is a native button with keyboard support; reduced-motion preferences are respected.
-- **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The angled tabs navigate between projects.
+- **Interactive cork bulletin board:** a textured cork surface, wooden frame, pastel project notes, and star, heart, and flower thumbtacks. Drag notes to arrange them, or click a note to open its project description. Each note is a native button with keyboard support. Dragging does not open the description.
+- **Consistent project colors:** pinned notes, thumbtacks, featured folders, and project description backgrounds share each project’s palette.
+- **Board details:** the drag-and-click instruction sits inside the bottom-right corner; “MOVE AN IDEA. MAKE A CONNECTION.” is centered underneath the board.
+- **Stacked featured folders:** Twitch, Meta, and Unity Hub slide over one another during scrolling. The persistent angled tabs navigate between projects. Each folder presents the title, date, role, focus, summary, highlights, and an Open Project button.
 - **All Work gallery:** a responsive two-column project index with description dialogs and project-specific icons.
 - **Project resources:** presentation PDFs and Figma links are available inside the project dialogs.
 - **Technical skills carousel:** computer skills, coding skills, and certificates, with swipe, arrow-button, and keyboard navigation.
@@ -24,7 +26,22 @@ A personal portfolio showcasing UX/UI design, human-centered computing, and comm
 | Unity Hub | Inclusive campus app prototype for Indiana University | August–November 2024 |
 | Accenture North America | Product Design Job Simulation through Forage | December 2024 |
 
-Accenture is a learning simulation, not employment. Twitch and Meta previews are illustrations based on the Figma designs; Unity Hub displays original Figma screens. The original design and presentation links remain available in the project dialogs.
+### Project palette
+
+| Project ID | Pinned project / featured work | Color | Hex | Thumbtack |
+| --- | --- | --- | --- | --- |
+| `twitch` | Community Climb | Blue | `#d6e9fb` | Star |
+| `meta` | Where Plans Go to Die? | Pink | `#f8dcdf` | Heart |
+| `unity` | Unity Hub | Lavender | `#e1d8f4` | Flower |
+
+### Project previews and descriptions
+
+- **Twitch:** three-phone illustration showing the live climb, community support, and a goal unlocking.
+- **Meta:** four-phone illustration showing the complete flow: create an event → ask individuals → share in the group chat → collect RSVPs.
+- **Unity Hub:** three original Figma screens showing Home, Discover, and Profile.
+- **Accenture:** a process illustration for a Forage learning simulation, not employment.
+
+Twitch and Meta illustrations are based on the supplied Figma designs; they are not original interface exports. Original Figma and presentation links are available inside the project dialogs. The Meta description lists each role separately with mini-star markers. Description dialogs opened from All Work include a small project-specific icon.
 
 ## Run locally
 
@@ -36,16 +53,18 @@ python3 -m http.server 8000
 
 Open [http://localhost:8000](http://localhost:8000) for the homepage or [http://localhost:8000/work.html](http://localhost:8000/work.html) for the gallery.
 
-No package installation or build step is required. The site runs without WebGL or a 3D engine. A local server is recommended when previewing pages and assets.
+No package installation or build step is required. The site uses plain HTML, CSS, JavaScript, inline SVG, and local image/PDF assets. It runs without Three.js, WebGL, or a backend. A local server is recommended when previewing pages and assets.
+
+There is no Play/Pause motion button or automatic cork-board animation. Reduced-motion preferences remain supported for scrolling and other transitions.
 
 ## Source files
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Homepage, featured folders, about, leadership, skills, and contact |
+| `index.html` | Cork bulletin board, featured folders, about, leadership, skills, and contact |
 | `work.html` | All Work gallery |
 | `style.css` | Shared layout, responsive styling, illustrations, and accessibility styles |
-| `app.js` | Shared project data, dialogs, icons, folder navigation, and skills carousel |
+| `app.js` | Shared project data, description colors, dialogs, icons, folder navigation, skills carousel, and note dragging |
 | `images/` | Portrait, original Unity Hub screens, and project illustrations |
 | `ryanna-jelks-resume.pdf` | Current downloadable resume |
 | `P2T5_Twitch.pdf` | Twitch presentation |
@@ -65,7 +84,9 @@ No package installation or build step is required. The site runs without WebGL o
 - Edit featured summaries and role lists in `index.html`.
 - Edit gallery cards in `work.html`.
 - Edit the shared `data` object in `app.js` for dialog titles, roles, descriptions, highlights, notes, and resource links.
-- Keep project IDs consistent across the HTML buttons, `app.js`, and the idea-board buttons in `index.html`.
+- Keep project IDs consistent across pinned notes and featured buttons in `index.html`, gallery buttons in `work.html`, and the shared data in `app.js`.
+- Keep note, folder, description, and thumbtack colors aligned in `style.css` when changing a project’s palette.
+- Update the preview caption and dialog note to distinguish original screens from illustrations.
 - Put new visual assets in `images/` and provide descriptive alternative text.
 - Keep presentation and Figma links inside the dialogs.
 
@@ -79,5 +100,5 @@ After publishing:
 
 - Confirm the deployment succeeded in the repository’s **Actions** tab.
 - Check both the homepage and All Work gallery.
-- Verify project dialogs, Figma and PDF links, resume downloads, folder navigation, and the skills carousel.
+- Verify pinned-note clicks and dragging, matching description colors, project icons, Figma and PDF links, resume downloads, stacked-folder navigation, and the skills carousel.
 - Check a narrow screen layout and keyboard navigation.
