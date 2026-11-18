@@ -4,6 +4,7 @@ const projectIcons={"twitch":"<span class=\"project-dialog-icon icon-twitch\" ar
 function openProject(id,opener){
   const p=data[id];if(!p)return;
   projectOpener=opener||document.activeElement;
+  dialog.dataset.project=id;
   const projectIcon=document.body.classList.contains("work-page") ? projectIcons[id] || "" : "";
   content.innerHTML=`<div class="meta">${p.n}</div>${projectIcon ? `<div class="project-dialog-heading">${projectIcon}<h2 id="project-title">${p.title}</h2></div>` : `<h2 id="project-title">${p.title}</h2>`}<p><strong>${p.intro}</strong></p>${p.roles ? `<div class="project-role-block"><p class="project-role-label">MY ROLES</p><ul class="project-roles">${p.roles.map(role=>`<li><span class="role-star" aria-hidden="true">✦</span>${role}</li>`).join("")}</ul></div>` : ""}<p>${p.body}</p><ul>${p.list.map(v=>`<li>${v}</li>`).join('')}</ul>${p.resourcesHtml || ""}<p class="disclosure">${p.note}</p>`;
   if(!dialog.open)dialog.showModal();

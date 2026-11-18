@@ -368,3 +368,11 @@ body.paused .idea-card{animation-play-state:paused}
 .pin-twitch svg>path:nth-child(2){fill:#d6e9fb}
 .pin-unity svg>g{fill:#b6a0df;stroke:#8065ab}
 .pin-unity svg>circle:first-of-type{fill:#eee5ff;stroke:#9a7cc1}
+
+/* Project description colors follow the matching pinned note and folder. */
+#detail[data-project="twitch"]{--description-bg:#d6e9fb;--description-accent:#34537d}
+#detail[data-project="meta"]{--description-bg:#f8dcdf;--description-accent:#7b455e}
+#detail[data-project="unity"]{--description-bg:#e1d8f4;--description-accent:#50336f}
+#detail[data-project="twitch"],#detail[data-project="meta"],#detail[data-project="unity"]{background:var(--description-bg);border-color:var(--description-accent)}
+#detail[data-project] .project-dialog-icon{background:#ffffff75;color:var(--description-accent,#765295)}
+#detail[data-project] .role-star{color:var(--description-accent,#78528c)}
