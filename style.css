@@ -359,3 +359,12 @@ body.paused .idea-card{animation-play-state:paused}
 .idea-symbol{top:52px}
 .board-instruction{bottom:11px;left:50%;right:auto;transform:translateX(-50%) rotate(.4deg);width:max-content;max-width:calc(100% - 28px);padding:6px 9px;background:#fff7e5e8;color:#65452c;border-radius:2px;box-shadow:1px 2px 3px #69482c19;font-size:7px}
 @media(max-width:600px){.idea-board{border-width:9px;border-radius:17px}.idea-card{padding-top:26px}.board-pin{width:32px;height:36px;top:-15px}.board-pin svg{width:32px;height:32px}.board-pin:before{left:15px;top:21px;height:13px}.board-heading{top:13px;font-size:7px}.idea-symbol{top:44px}.board-instruction{font-size:6px;letter-spacing:.1px;padding:6px 7px}}
+
+/* Project notes use the same palette as their featured folders. */
+.idea-twitch{background-color:#d6e9fb;color:#34537d}
+.idea-meta{background-color:#f8dcdf;color:#7b455e}
+.idea-unity{background-color:#e1d8f4;color:#50336f}
+.pin-twitch svg>path:first-child{fill:#86b9e5;stroke:#4e7ca6}
+.pin-twitch svg>path:nth-child(2){fill:#d6e9fb}
+.pin-unity svg>g{fill:#b6a0df;stroke:#8065ab}
+.pin-unity svg>circle:first-of-type{fill:#eee5ff;stroke:#9a7cc1}
